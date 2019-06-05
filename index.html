@@ -1,7 +1,51 @@
 <!DOCTYPE html>
+
 <html>
-<body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+
+<meta charset="utf-8" />
+
+</head>
+
+<body style="text-align:center;background-color: bisque；padding-top: 100px;">
+
+<h5>达组违禁词替换</h5>
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+
+<textarea id="data" cols="30" rows="10"></textarea>
+<button type="button" id="btn">文本转换</button>
+
+  <script>
+var keywords=['速来','批们','快来','速进','批进','蛊','四环','三环','二环','一环','超话','杜梅','独美','独自美丽','蒸煮','正主','不可说','正宫','官配','你家','我家','抱走','圈地自萌','邪教'];
+var key=['*速来*','*批们*','*快来*','*速进*','*批进*','*蛊*','*四环*','*三环*','*二环*','*一环*','*超话*','*杜梅*','*独美*','*独自美丽*','*蒸煮*','*正主*','*不可说*','*正宫*','*官配*','*你家*','*我家*','*抱走*','*圈地自萌*','*邪教*'];
+ $('#btn').click(function () {
+   
+var value = $("#data").val();
+
+	      for(var i=0;i<keywords.length;i++){
+
+		var reg = new RegExp(keywords[i],"g");
+
+		if(value.indexOf(keywords[i])!=-1){
+
+			var result = value.replace(reg,key[i]);
+
+			value = result;
+
+			$("#data").val(result);
+
+		}
+
+	}
+
+});
+</script>
+
+
 </body>
+
 </html>
